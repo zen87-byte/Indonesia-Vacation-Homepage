@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/*navbar*/
+nav {
+  display: flex;
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  height: 50px;
+  align-items: center;
+}
+
+nav img {
+  width: 5%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: gray;
+}
+
+nav ul li .nav-dropdown {
+  display: none;
+}
+
+.wrapper {
+  margin: auto;
+}
+section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+#home {
+  background-image: url('https://wallpapercave.com/wp/wp9247733.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 518px;
+  margin-left: 100px;
+}
+.home .main h1 {
+  font-size: xx-large;
+  margin: 5px 0px;
+}
+.home .main .tombol a {
+  text-decoration: none;
+}
+.home .main .tombol a p {
+  width: 80px;
+  margin-top: 10px;
+  padding: 3px;
+  border: 1px solid orange;
+  border-radius: 12px;
+  background-color: orange;
+  color: black;
+  text-align: center;
+}
+.home .main .tombol a p:hover {
+  border: 1px solid orangered;
+  background-color: orangered;
+}
+#explore {
+  background-color: black;
+  height: 570px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  color: white;
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: -50px;
+  box-sizing: border-box;
+  font-size: larger;
+  font-family: sans-serif;
+}
+.explore {
+  margin: auto;
+}
+
+.explore .land {
+  display: flex;
+  justify-content: space-evenly;
+  color: wheat;
+  box-sizing: border-box;
+}
+.explore .land .region {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+.explore .land .region:hover {
+  transform: scale(110%);
+  transition: 0.1s;
+}
+
+.explore .land .region .gambar {
+  width: 70%;
+  text-align: center;
+  margin: 8px auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.explore .land .region img {
+  width: 100%;
+  float: none;
+}
+.explore .land .region .deskripsi {
+  padding: 10px;
+}
+.explore .land .region .deskripsi .visit {
+  text-align: center;
+  padding-top: 10px;
+}
+.explore .land .region .deskripsi .visit a {
+  color: green;
+  text-decoration: none;
+}
+.explore .land .region .deskripsi h3 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+/*Hamburger Menu*/
+.menu-toggle {
+  display: none; /*flex default = horizontal(row)*/
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: black;
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/*Hamburger menu animation*/
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ :nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+  background-color: #1f1f1f;
+}
+
+.menu-toggle input:checked ~ :nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+  background-color: #1f1f1f;
+}
+
+.menu-toggle input:checked ~ :nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Responsive*/
+
+/*Tablet*/
+@media screen and (max-width: 766px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/*Mobile*/
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    height: 100vh; /*ukuran dari yg terlihat di layar*/
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    z-index: -1;
+    transform: translateX(100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  nav ul.slide {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
